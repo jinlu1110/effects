@@ -1,0 +1,24 @@
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Js实现倒计时效果</title> 
+		<script language="javascript"> 
+			var timeLeft = 90 * 60 * 1000;//这里设定的时间是90分钟
+			function countTime(){ 
+			    if(timeLeft == 0){//这里就是时间到了之后应该执行的动作了，这里只是弹了一个警告框 
+			        alert("时间到"); 
+			        return; 
+			    } 
+			    var startMinutes = parseInt(timeLeft / (60 * 1000), 10); 
+			    var startSec = parseInt((timeLeft - startMinutes * 60 * 1000)/1000); 
+			    document.getElementById('show').innerHTML = "剩余时间：" + startMinutes + "分钟" + startSec + "秒"; 
+			    timeLefttimeLeft = timeLeft - 1000; 
+			    setTimeout('countTime()',1000); 
+			} 
+		</script> 
+</head> 
+ 
+<body onload="countTime()"> 
+	<div id="show"></div> 
+</body> 
+</html>

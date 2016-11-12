@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+
+		window.onload=function(){
+			var drag=document.getElementById('drag');
+			var flag=0;
+			drag.onmousedown=function(e){
+				flag=1;
+				e=e || window.event;
+				this.kTop=e.clientY-this.offsetTop;
+				this.kLeft=e.clientX-this.offsetLeft;
+				
+			}
+			document.onmousemove=function(e){
+
+				if(flag){
+					e=e || window.event;
+					drag.style.top=e.clientY-drag.kTop+'px';
+					drag.style.left=e.clientX-drag.kLeft+'px';
+				}
+			}
+			drag.onmouseup=function(){
+				flag=0;
+			}
+		}
+	</script>
+</head>
+<body bgcolor="gray">
+	<div style="width:400px;height:300px;background:white;border:2px solid red;position:absolute;cursor:move" id="drag">
+	</div>
+</body>
+</html>
